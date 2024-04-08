@@ -21,6 +21,6 @@
         </yAxis>
       </AreaChart>
       <TextArea layoutX="83.0" layoutY="479.0" prefHeight="200.0" prefWidth="1063.0" promptText="Средняя производительность" />
-      <Button layoutX="261.0" layoutY="21.0" mnemonicParsing="false" text="Button" />
+      <Button layoutX="261.0" layoutY="21.0" mnemonicParsing="false" text="Производительность" />
    </children>
 </AnchorPane>
