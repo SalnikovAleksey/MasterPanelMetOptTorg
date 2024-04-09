@@ -37,10 +37,12 @@
     <TextField fx:id="textFieldVes" layoutX="49.0" layoutY="214.0" prefHeight="36.0" prefWidth="198.0" promptText="Вес, кг."/>
     <Button fx:id="okButton" layoutX="287.0" layoutY="157.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="68.0" text="ОК"
     onAction="#okButtonClick"/>
-    <TableView editable="true" layoutX="442.0" layoutY="75.0" prefHeight="686.0" prefWidth="720.0">
+    <TableView fx:id="table" editable="true" layoutX="442.0" layoutY="75.0" prefHeight="686.0" prefWidth="720.0">
       <columns>
           <TableColumn prefWidth="47.0" text="№"/>
           <TableColumn minWidth="0.0" prefWidth="262.0" text="Номенклатура"/>
+          <TableColumn minWidth="0.0" prefWidth="262.0" text="Вес, кг"/>
+          <TableColumn minWidth="0.0" prefWidth="262.0" text="Дата"/>
       </columns>
     </TableView>
 </AnchorPane>
