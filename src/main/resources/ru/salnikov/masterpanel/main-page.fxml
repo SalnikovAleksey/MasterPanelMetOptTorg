@@ -6,32 +6,20 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.salnikov.masterpanel.controlles.MainPageController">
-   <children>
-      <MenuBar id="menu" layoutY="2.0" prefHeight="29.0" prefWidth="1200.0">
-        <menus>
-          <Menu id="menuZavoz" mnemonicParsing="false" text="Завоз">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
-            </items>
-          </Menu>
-          <Menu id="menuVivoz" mnemonicParsing="false" text="Вывоз">
-            <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
-            </items>
-          </Menu>
-          <Menu id="menuBalance" mnemonicParsing="false" text="Остатки">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
-          </Menu>
-            <Menu mnemonicParsing="false" text="Производительность">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
-            </Menu>
-        </menus>
-      </MenuBar>
-      <Text layoutX="545.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autharization OK" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
+            prefWidth="1200.0" xmlns="http://javafx.com/javafx/21.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ru.salnikov.masterpanel.controlles.MainPageController">
+
+    <MenuBar fx:id="menuBar" layoutY="2.0" prefHeight="29.0" prefWidth="1200.0">
+        <Menu id="menuZavoz" mnemonicParsing="false" text="Перемещения">
+            <MenuItem mnemonicParsing="false" text="Завоз" onAction="#zavozClick"/>
+            <MenuItem mnemonicParsing="false" text="Вывоз"/>
+            <MenuItem mnemonicParsing="false" text="Остатки"/>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Производительность">
+            <MenuItem mnemonicParsing="false" text="За текущий месяц"/>
+            <MenuItem mnemonicParsing="false" text="За прошлый месяц"/>
+        </Menu>
+    </MenuBar>
+    <Text layoutX="545.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autharization OK"/>
 </AnchorPane>

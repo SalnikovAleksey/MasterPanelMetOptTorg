@@ -27,6 +27,7 @@ public class AuthController {
 
            Scene scene = new Scene(root);
            Stage currentStage = (Stage) passField.getScene().getWindow();
+           currentStage.setTitle("main page");
 
            currentStage.setScene(scene);
            currentStage.show();
