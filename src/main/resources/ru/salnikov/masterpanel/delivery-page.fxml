@@ -34,7 +34,7 @@
           <MenuItem mnemonicParsing="false" text="Кабель б/у" onAction="#cablebu"/>
       </items>
     </MenuButton>
-    <TextField fx:id="textFieldVes" layoutX="49.0" layoutY="214.0" prefHeight="36.0" prefWidth="198.0" promptText="Вес, кг."/>
+    <TextField fx:id="textFieldWeight" layoutX="49.0" layoutY="214.0" prefHeight="36.0" prefWidth="198.0" promptText="Вес, кг."/>
     <Button fx:id="okButton" layoutX="277.0" layoutY="157.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="80.0" text="Добавить"
     onAction="#okButtonClick"/>
     <TableView fx:id="table" editable="true" layoutX="442.0" layoutY="75.0" prefHeight="686.0" prefWidth="720.0">

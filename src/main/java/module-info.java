@@ -10,6 +10,8 @@ module ru.salnikov.masterpanel {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires java.sql;
+    requires org.xerial.sqlitejdbc;
 
     opens ru.salnikov.masterpanel to javafx.fxml;
     exports ru.salnikov.masterpanel;

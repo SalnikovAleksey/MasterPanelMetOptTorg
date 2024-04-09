@@ -16,6 +16,7 @@ import ru.salnikov.masterpanel.StartApplication;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class DeliveryController implements Initializable {
@@ -25,7 +26,7 @@ public class DeliveryController implements Initializable {
     public DatePicker datePicker;
     public MenuButton menuButton;
     public Button okButton;
-    public TextField textFieldVes;
+    public TextField textFieldWeight;
     public TableView<Materials> table;
 
     static ObservableList<Materials> materialsList;
@@ -33,6 +34,10 @@ public class DeliveryController implements Initializable {
     public TableColumn<Materials, String> nomenclature;
     public TableColumn<Materials, Integer> weight;
     public TableColumn<Materials, String> date;
+
+    public static Connection conn;
+    public static Statement statmt;
+    public static ResultSet resSet;
 
     private Integer numberInTable = 0;
 
@@ -52,14 +57,19 @@ public class DeliveryController implements Initializable {
     public void datePick(ActionEvent actionEvent) {
     }
 
-    public void okButtonClick(ActionEvent actionEvent) {
+    public void okButtonClick(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
+        statmt.execute("INSERT INTO 'MaterialsTable' ('nomenclature', 'weight', 'date') " +
+                "VALUES ('" + menuButton.getText() + "', '"
+                + textFieldWeight.getText() + "', "
+                + datePicker.getValue() + "); ");
 
         if (materialsList != null && !menuButton.getText().equals("Номенклатура")) {
             numberInTable++;
             materialsList.add(new Materials(
                     numberInTable,
                     menuButton.getText(),
-                    Integer.parseInt(textFieldVes.getText()),
+                    Integer.parseInt(textFieldWeight.getText()),
                     datePicker.getValue().toString()
             ));
         }
@@ -75,6 +85,32 @@ public class DeliveryController implements Initializable {
         menuButton.setText("Кабель б/у");
     }
 
+    public void connectDb() throws ClassNotFoundException, SQLException {
+        conn = null;
+        Class.forName("org.sqlite.JDBC");
+        conn = DriverManager.getConnection("jdbc:sqlite:MasterPanelDB.s3db");
+        statmt = conn.createStatement();
+    }
+
+    public void readDb() throws SQLException {
+        resSet = statmt.executeQuery("SELECT * FROM MaterialsTable");
+
+        while (resSet.next()) {
+
+            System.out.println(resSet.getInt("number"));
+            System.out.println(resSet.getString("nomenclature"));
+            System.out.println(resSet.getInt("weight"));
+            System.out.println(resSet.getDate("date").toString());
+
+            materialsList.add(new Materials(
+                    resSet.getInt("number"),//TODO number переименовать в id
+                    resSet.getString("nomenclature"),
+                    resSet.getInt("weight"),
+                    resSet.getDate("date").toString()
+            ));
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { //TODO Привести код в норму
         materialsList = FXCollections.observableArrayList();
@@ -83,5 +119,12 @@ public class DeliveryController implements Initializable {
         weight.setCellValueFactory(new PropertyValueFactory<Materials, Integer>("weight"));
         date.setCellValueFactory(new PropertyValueFactory<Materials, String>("date"));
         table.setItems(materialsList);
+
+        try {
+            connectDb();
+            readDb();
+        } catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
