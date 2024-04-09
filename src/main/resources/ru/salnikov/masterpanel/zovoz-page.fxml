@@ -39,10 +39,10 @@
     onAction="#okButtonClick"/>
     <TableView fx:id="table" editable="true" layoutX="442.0" layoutY="75.0" prefHeight="686.0" prefWidth="720.0">
       <columns>
-          <TableColumn prefWidth="47.0" text="№"/>
-          <TableColumn minWidth="0.0" prefWidth="262.0" text="Номенклатура"/>
-          <TableColumn minWidth="0.0" prefWidth="262.0" text="Вес, кг"/>
-          <TableColumn minWidth="0.0" prefWidth="262.0" text="Дата"/>
+          <TableColumn fx:id="number" prefWidth="47.0" text="№"/>
+          <TableColumn fx:id="nomenclatura" minWidth="0.0" prefWidth="262.0" text="Номенклатура"/>
+          <TableColumn fx:id="ves" minWidth="0.0" prefWidth="262.0" text="Вес, кг"/>
+          <TableColumn fx:id="date" minWidth="0.0" prefWidth="262.0" text="Дата"/>
       </columns>
     </TableView>
 </AnchorPane>
