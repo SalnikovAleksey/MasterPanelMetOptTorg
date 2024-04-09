@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ZavozController implements Initializable {
+public class DeliveryController implements Initializable {
 
     @FXML
     public MenuBar menuBar;
@@ -30,21 +30,11 @@ public class ZavozController implements Initializable {
 
     static ObservableList<Materials> materialsList;
     public TableColumn<Materials, Integer> number;
-    public TableColumn<Materials, String> nomenclatura;
-    public TableColumn<Materials, Integer> ves;
+    public TableColumn<Materials, String> nomenclature;
+    public TableColumn<Materials, Integer> weight;
     public TableColumn<Materials, String> date;
 
-    MenuItem menuItem1 = new MenuItem("Труба Incoloy 800");
-    MenuItem menuItem2 = new MenuItem("Кабель б/у");
-
-    static {
-        materialsList = FXCollections.observableArrayList(
-                new Materials(1, "Incoloy 800", 1250, "12-03-2024"),
-                new Materials(2, "Incoloy 800", 640, "14-05-2024"),
-                new Materials(3, "Кабель б/у", 2300, "22-05-2024")
-        );
-
-    }
+    private Integer numberInTable = 0;
 
     @FXML
     protected void backClick() throws IOException {
@@ -63,9 +53,19 @@ public class ZavozController implements Initializable {
     }
 
     public void okButtonClick(ActionEvent actionEvent) {
+
+        if (materialsList != null && !menuButton.getText().equals("Номенклатура")) {
+            numberInTable++;
+            materialsList.add(new Materials(
+                    numberInTable,
+                    menuButton.getText(),
+                    Integer.parseInt(textFieldVes.getText()),
+                    datePicker.getValue().toString()
+            ));
+        }
         menuButton.setText("Номенклатура");
-        //Materials newMat = new Materials(materialsList.toArray().length, ) TODO сделать добавление новой позиции
     }
+
 
     public void incoloy800(ActionEvent actionEvent) {
         menuButton.setText("Труба Incoloy 800");
@@ -77,9 +77,10 @@ public class ZavozController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { //TODO Привести код в норму
+        materialsList = FXCollections.observableArrayList();
         number.setCellValueFactory(new PropertyValueFactory<Materials, Integer>("number"));
-        nomenclatura.setCellValueFactory(new PropertyValueFactory<Materials, String>("nomenclatura"));
-        ves.setCellValueFactory(new PropertyValueFactory<Materials, Integer>("ves"));
+        nomenclature.setCellValueFactory(new PropertyValueFactory<Materials, String>("nomenclature"));
+        weight.setCellValueFactory(new PropertyValueFactory<Materials, Integer>("weight"));
         date.setCellValueFactory(new PropertyValueFactory<Materials, String>("date"));
         table.setItems(materialsList);
     }

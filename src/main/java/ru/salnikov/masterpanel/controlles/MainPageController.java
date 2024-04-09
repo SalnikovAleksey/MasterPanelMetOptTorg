@@ -20,12 +20,12 @@ public class MainPageController {
 
     @FXML
     protected void zavozClick() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("zovoz-page.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("delivery-page.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
         Stage currentStage = (Stage) menuBar.getScene().getWindow();
-        currentStage.setTitle("zavoz page");
+        currentStage.setTitle("delivery page");
         currentStage.setScene(scene);
 
         currentStage.show();
