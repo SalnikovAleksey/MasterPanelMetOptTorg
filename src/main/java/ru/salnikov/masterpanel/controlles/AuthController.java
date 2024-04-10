@@ -19,19 +19,19 @@ public class AuthController {
 
     @FXML
     protected void clickLogin() throws IOException {
-       if (loginField != null && passField != null
-            && loginField.getText().equals("user") && passField.getText().equals("pass")) {
+        if (loginField != null && passField != null
+                && loginField.getText().equals("user") && passField.getText().equals("pass")) {
 
-           FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("main-page.fxml"));
-           Parent root = fxmlLoader.load();
+            FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("main-page.fxml"));
+            Parent root = fxmlLoader.load();
 
-           Scene scene = new Scene(root);
-           Stage currentStage = (Stage) passField.getScene().getWindow();
-           currentStage.setTitle("main page");
+            Scene scene = new Scene(root);
+            Stage currentStage = (Stage) passField.getScene().getWindow();
+            currentStage.setTitle("main page");
 
-           currentStage.setScene(scene);
-           currentStage.show();
-       }
+            currentStage.setScene(scene);
+            currentStage.show();
+        }
 
     }
 }

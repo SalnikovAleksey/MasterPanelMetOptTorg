@@ -57,12 +57,12 @@ public class DeliveryController implements Initializable {
     public void datePick(ActionEvent actionEvent) {
     }
 
-    public void okButtonClick(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+    public void okButtonClick(ActionEvent actionEvent) throws SQLException {
 
         statmt.execute("INSERT INTO 'MaterialsTable' ('nomenclature', 'weight', 'date') " +
                 "VALUES ('" + menuButton.getText() + "', '"
-                + textFieldWeight.getText() + "', "
-                + datePicker.getValue() + "); ");
+                + textFieldWeight.getText() + "', '"
+                + datePicker.getValue() + "'); ");
 
         if (materialsList != null && !menuButton.getText().equals("Номенклатура")) {
             numberInTable++;
@@ -94,25 +94,18 @@ public class DeliveryController implements Initializable {
 
     public void readDb() throws SQLException {
         resSet = statmt.executeQuery("SELECT * FROM MaterialsTable");
-
         while (resSet.next()) {
-
-            System.out.println(resSet.getInt("number"));
-            System.out.println(resSet.getString("nomenclature"));
-            System.out.println(resSet.getInt("weight"));
-            System.out.println(resSet.getDate("date").toString());
-
             materialsList.add(new Materials(
-                    resSet.getInt("number"),//TODO number переименовать в id
+                    resSet.getInt("number"),
                     resSet.getString("nomenclature"),
                     resSet.getInt("weight"),
-                    resSet.getDate("date").toString()
+                    resSet.getString("date")
             ));
         }
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) { //TODO Привести код в норму
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         materialsList = FXCollections.observableArrayList();
         number.setCellValueFactory(new PropertyValueFactory<Materials, Integer>("number"));
         nomenclature.setCellValueFactory(new PropertyValueFactory<Materials, String>("nomenclature"));

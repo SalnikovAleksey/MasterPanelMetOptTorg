@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.salnikov.masterpanel.controlles.ExportController">
+
+    <MenuBar fx:id="menuBar" layoutY="2.0" prefHeight="29.0" prefWidth="1200.0">
+        <Menu mnemonicParsing="false" text="Назад">
+            <MenuItem mnemonicParsing="false" onAction="#backClick" text="Назад" />
+        </Menu>
+
+    </MenuBar>
+
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d2e7fa84" height="254.0" layoutX="20.0" layoutY="75.0" stroke="BLACK" strokeType="INSIDE" width="368.0" />
+    <DatePicker fx:id="datePicker" layoutX="49.0" layoutY="97.0" onAction="#datePick" prefHeight="36.0" prefWidth="198.0" promptText="Дата вывоза" />
+    <MenuButton fx:id="menuButton" layoutX="49.0" layoutY="157.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="198.0" text="Номенклатура">
+      <items>
+          <MenuItem fx:id="aluminumMenu" mnemonicParsing="false" onAction="#aluminumClick" text="Алюминий" />
+          <MenuItem fx:id="copperPureClick" mnemonicParsing="false" onAction="#copperPure" text="Медь чистая" />
+         <MenuItem fx:id="copperDirtyClick" mnemonicParsing="false" onAction="#copperDirty" text="Медь засор" />
+         <MenuItem fx:id="steelArmorClick" mnemonicParsing="false" onAction="#steelArmor" text="Стальная броня" />
+         <MenuItem fx:id="steelVeinClick" mnemonicParsing="false" onAction="#steelVein" text="Стальная жила" />
+         <MenuItem fx:id="garbageClick" mnemonicParsing="false" onAction="#garbage" text="Отходы" />
+         <MenuItem fx:id="pvcClick" mnemonicParsing="false" onAction="#Pvc" text="ПВХ" />
+      </items>
+    </MenuButton>
+    <TextField fx:id="textFieldWeight" layoutX="49.0" layoutY="214.0" prefHeight="36.0" prefWidth="198.0" promptText="Вес, кг." />
+    <Button fx:id="okButton" layoutX="277.0" layoutY="188.0" mnemonicParsing="false" onAction="#okButtonClick" prefHeight="36.0" prefWidth="80.0" text="Добавить" />
+    <TableView fx:id="table" editable="true" layoutX="442.0" layoutY="75.0" prefHeight="686.0" prefWidth="720.0">
+      <columns>
+          <TableColumn fx:id="number" prefWidth="47.0" text="№" />
+          <TableColumn fx:id="nomenclature" minWidth="0.0" prefWidth="262.0" text="Номенклатура" />
+          <TableColumn fx:id="weight" minWidth="0.0" prefWidth="205.0" text="Вес, кг" />
+          <TableColumn fx:id="date" minWidth="0.0" prefWidth="205.0" text="Дата" />
+      </columns>
+    </TableView>
+   <Button fx:id="deleteButton" layoutX="776.0" layoutY="767.0" mnemonicParsing="false" onAction="#deleteButtonClick" text="Удалить" />
+   <TextField fx:id="textFieldTaskId" layoutX="49.0" layoutY="272.0" prefHeight="36.0" prefWidth="198.0" promptText="Номер задачи" />
+</AnchorPane>
