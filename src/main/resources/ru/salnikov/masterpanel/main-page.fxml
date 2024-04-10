@@ -11,14 +11,14 @@
             fx:controller="ru.salnikov.masterpanel.controlles.MainPageController">
 
     <MenuBar fx:id="menuBar" layoutY="2.0" prefHeight="29.0" prefWidth="1200.0">
-        <Menu id="menuZavoz" mnemonicParsing="false" text="Перемещения">
-            <MenuItem mnemonicParsing="false" text="Завоз" onAction="#zavozClick"/>
-            <MenuItem mnemonicParsing="false" text="Вывоз"/>
-            <MenuItem mnemonicParsing="false" text="Остатки"/>
+        <Menu mnemonicParsing="false" text="Перемещения">
+            <MenuItem mnemonicParsing="false" text="Завоз" onAction="#deliveryClick"/>
+            <MenuItem mnemonicParsing="false" text="Вывоз" onAction="#exportClick"/>
+            <MenuItem mnemonicParsing="false" text="Остатки" onAction="#balanceClick"/>
         </Menu>
         <Menu mnemonicParsing="false" text="Производительность">
-            <MenuItem mnemonicParsing="false" text="За текущий месяц"/>
-            <MenuItem mnemonicParsing="false" text="За прошлый месяц"/>
+            <MenuItem mnemonicParsing="false" text="Переработка" onAction="#recyclingClick"/>
+            <MenuItem mnemonicParsing="false" text="Статистика"/>
         </Menu>
     </MenuBar>
     <Text layoutX="545.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autharization OK"/>
