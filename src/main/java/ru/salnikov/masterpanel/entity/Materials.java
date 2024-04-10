@@ -1,4 +1,4 @@
-package ru.salnikov.masterpanel;
+package ru.salnikov.masterpanel.entity;
 
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;

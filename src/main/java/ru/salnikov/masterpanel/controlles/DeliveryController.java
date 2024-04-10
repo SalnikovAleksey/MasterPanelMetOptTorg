@@ -11,7 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import ru.salnikov.masterpanel.Materials;
+import ru.salnikov.masterpanel.entity.Materials;
 import ru.salnikov.masterpanel.StartApplication;
 
 import java.io.IOException;

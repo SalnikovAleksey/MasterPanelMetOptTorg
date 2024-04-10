@@ -17,4 +17,6 @@ module ru.salnikov.masterpanel {
     exports ru.salnikov.masterpanel;
     exports ru.salnikov.masterpanel.controlles;
     opens ru.salnikov.masterpanel.controlles to javafx.fxml;
+    exports ru.salnikov.masterpanel.entity;
+    opens ru.salnikov.masterpanel.entity to javafx.fxml;
 }
